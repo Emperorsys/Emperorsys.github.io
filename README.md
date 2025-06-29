@@ -1,7 +1,6 @@
 ---
-theme: jekyll-theme-cayman
+theme: minimal
 ---
-
 # Welcome to My First Website!
 Hello world! I built this in 24 hours.  
 - Here’s a cat: 🐱  
