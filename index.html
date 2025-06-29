@@ -15,13 +15,51 @@
 <body>
   <h1>PROTO-ENGINE ALPHA</h1>
   <div id="map"></div>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script>
-    const map = L.map('map').setView([51.505, -0.09], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-    map.on('click', (e) => {
-      alert(`Coordinates: ${e.latlng.lat}, ${e.latlng.lng}`);
-    });
-  </script>
+<!-- Particle System Starter -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  // 1. Create scene
+  const scene = new THREE.Scene();
+  
+  // 2. Create particle system
+  const particles = 1000;
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particles * 3); 
+  
+  // 3. Position particles randomly
+  for (let i = 0; i < positions.length; i += 3) {
+    positions[i] = (Math.random() - 0.5) * 10; // x
+    positions[i+1] = (Math.random() - 0.5) * 10; // y
+    positions[i+2] = (Math.random() - 0.5) * 10; // z
+  }
+  
+  geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+  
+  // 4. Create material (glowing points)
+  const material = new THREE.PointsMaterial({
+    color: 0x00ffff,
+    size: 0.05,
+    transparent: true
+  });
+  
+  // 5. Add to scene
+  const particleSystem = new THREE.Points(geometry, material);
+  scene.add(particleSystem);
+  
+  // 6. Animate with wave motion
+  function animate() {
+    requestAnimationFrame(animate);
+    const positions = particleSystem.geometry.attributes.position.array;
+    
+    for (let i = 0; i < positions.length; i += 3) {
+      // Create wave motion
+      positions[i+1] = 0.5 * Math.sin(Date.now() * 0.001 + positions[i]);
+    }
+    
+    particleSystem.geometry.attributes.position.needsUpdate = true;
+    renderer.render(scene, camera);
+  }
+  animate();
+</script>
 </body>
 </html>
