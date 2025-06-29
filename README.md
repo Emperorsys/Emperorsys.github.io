@@ -1,7 +1,8 @@
-# Welcome to My First Website!
 ---
 theme: jekyll-theme-midnight
 ---
+
+# Welcome to My First Website!
 Hello world! I built this in 24 hours.  
 - Here’s a cat: 🐱  
 - My favorite quote:  
