@@ -1,5 +1,5 @@
 ---
-theme: jekyll-theme-cayman
+theme: midnight
 ---
 # Welcome to My First Website!
 Hello world! I built this in 24 hours.  
