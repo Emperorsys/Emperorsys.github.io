@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Proto-Engine</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    body { 
+      background: #0f0c29; 
+      color: #00ffea; 
+      font-family: 'Courier New', monospace;
+    }
+    #map { height: 60vh; border: 2px solid #00ffea; }
+  </style>
+</head>
 <body>
-  <h1>My First Website!</h1>
-  <p>Coming soon...</p>
+  <h1>PROTO-ENGINE ALPHA</h1>
+  <div id="map"></div>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([51.505, -0.09], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    map.on('click', (e) => {
+      alert(`Coordinates: ${e.latlng.lat}, ${e.latlng.lng}`);
+    });
+  </script>
 </body>
 </html>
