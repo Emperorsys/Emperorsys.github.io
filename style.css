@@ -1,1 +1,81 @@
+body {
+    background-color: black;
+}
+.cube {
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%, -50%;
+    animation: 3s cube ease-in-out infinite;
+}
 
+.box1 {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: 3px;
+    border-style: solid;
+    border-color: whitesmoke;
+    box-shadow: 0 0 15px white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50%, -50%;
+    z-index: 10;
+
+}
+.box2 {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: 3px;
+    border-style: solid;
+    border-color: red;
+    box-shadow: 0 0 15px red;
+    position: absolute;
+    translate: 0px 30px 29px;
+    transform: rotateX(90deg);
+    top: 50%;
+    left: 50%;
+    translate: -50%, -50%;
+}
+
+.box3 {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: 3px;
+    border-style: solid;
+    border-color: green;
+    box-shadow: 0 0 15px green;
+    position: absolute;
+    translate: 0px 0px 55px;
+    transform: rotateX(180deg);
+    top: 50%;
+    left: 50%;
+    translate: -50%, -50%;
+
+}
+.box4 {
+    background-color: transparent;
+    width: 50px;
+    height: 50px;
+    border: 3px;
+    border-style: solid;
+    border-color: blue;
+    box-shadow: 0 0 15px blue;
+    position: absolute;
+    translate: 0px -30px 26px;
+    transform: rotateX(90deg);
+    top: 50%;
+    left: 50%;
+    translate: -50%, -50%;
+
+}
+
+
+@keyframes cube {
+    0% { transform: rotate3d(1,1,0, 0deg); }
+    100% { transform: rotate3d(1,1,0, 360deg); }
+}
